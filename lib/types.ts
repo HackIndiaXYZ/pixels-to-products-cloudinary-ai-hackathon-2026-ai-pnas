@@ -9,6 +9,7 @@ export interface ChildData {
   id?: string;
   patientId?: string;
   name: string;
+  imageUrl?: string;
   dateOfBirth?: string;
   age: number;
   sex: Sex;
@@ -100,6 +101,7 @@ export interface ClassificationDetails {
 export interface NutritionAnalysisResult {
   childId: string;
   name: string;
+  imageUrl?: string | null;
   age: number;
   sex: Sex;
   weight: number;

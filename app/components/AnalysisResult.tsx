@@ -61,10 +61,15 @@ export default function AnalysisResult({ result }: AnalysisResultProps) {
     <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-slate-200/60">
       <div className="bg-gradient-to-r from-slate-950 via-sky-950 to-cyan-900 p-6 text-white md:p-8">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-cyan-200">Integrated AI Classification</p>
-            <h2 className="mt-2 text-3xl font-semibold">{result.name}</h2>
-            <p className="mt-1 text-slate-200">Nutrition report generated at {new Date(result.timestamp).toLocaleString()}</p>
+          <div className="flex items-center gap-4">
+            {result.imageUrl && (
+              <img src={result.imageUrl} alt={result.name} className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-md" />
+            )}
+            <div>
+              <p className="text-sm uppercase tracking-[0.35em] text-cyan-200">Integrated AI Classification</p>
+              <h2 className="mt-2 text-3xl font-semibold">{result.name}</h2>
+              <p className="mt-1 text-slate-200">Nutrition report generated at {new Date(result.timestamp).toLocaleString()}</p>
+            </div>
           </div>
           <div className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur">
             <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Risk Level</p>

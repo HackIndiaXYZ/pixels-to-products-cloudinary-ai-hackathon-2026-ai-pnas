@@ -16,6 +16,7 @@ const optionalText = z.string().trim().max(2000).optional();
 export const registerChildSchema = z.object({
   patientId: z.string().trim().max(50).optional(),
   name: z.string().trim().min(1, 'Name is required').max(100),
+  imageUrl: z.string().url().optional(),
   dateOfBirth: z.string().date().optional(),
   age: z.coerce.number().nonnegative('Age must be zero or greater'),
   sex: z.enum(['M', 'F']),

@@ -20,6 +20,7 @@ interface ChildData {
   weight: number;
   height: number;
   muac: number;
+  imageUrl?: string | null;
   headCircumference: number | null;
   chestCircumference: number | null;
   bmi: number | null;
@@ -131,6 +132,7 @@ export default function ChildDetailsPage({ params }: ChildDetailsPageProps) {
   const currentAnalysis: NutritionAnalysisResult = {
     childId: child.id,
     name: child.name,
+    imageUrl: child.imageUrl || null,
     age: child.age,
     sex: child.sex as 'M' | 'F',
     weight: child.weight,

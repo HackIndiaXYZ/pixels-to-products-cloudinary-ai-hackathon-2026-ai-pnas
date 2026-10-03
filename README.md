@@ -15,10 +15,18 @@ The system serves:
 - 👷 **Community Health Workers** - Field-based nutrition assessors
 - 🌍 **Rural Users** - Low-resource settings with limited connectivity
 
-## 🎯 Key Features
+## 🏆 Hackathon Details
+- **Track**: Track 1 *(Please update if you selected Track 2 or 3)*
+- **The Problem**: Early detection of child malnutrition (SAM/MAM) in low-resource settings relies heavily on disjointed paper records and subjective visual assessments. Healthcare workers lack an integrated system to accurately store, track, and visually verify severe cases.
+
+## ☁️ How We Used Cloudinary
+Cloudinary is deeply integrated into the core workflow of AI-PNAS to handle crucial visual assessments. 
+- **Child Photo Upload Widget**: We integrated `next-cloudinary`'s `CldUploadWidget` directly into our child registration form. This allows healthcare workers on the field to securely upload photos of children for facial assessment, visual wasting verification, and medical record keeping.
+- **Dynamic Optimization**: The uploaded images are served via Cloudinary's secure URLs, ensuring bandwidth-optimized delivery for low-connectivity rural clinics.
 
 ### 1. Child Registration System
 - Collect anthropometric measurements (age, weight, height, MUAC)
+- **Cloudinary Image Upload**: Direct photo capture and storage for visual diagnosis.
 - Optional head and chest circumference
 - Secure data storage with Prisma ORM
 - Validation and error handling
@@ -51,16 +59,29 @@ The system serves:
 
 ```bash
 # Navigate to project
-cd /workspaces/aipnas-web
+cd aipnas-web
 
 # Install dependencies
 npm install
+
+# Setup environment variables
+# Create a .env.local file in the root and add your Cloudinary Cloud Name:
+# NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
 
 # Start development server
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000)
+
+## 🧪 How to Test It
+
+1. **Setup**: Follow the Quick Start steps above to run the app locally. Make sure your `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` is set in `.env.local`.
+2. **Dashboard**: Navigate to `http://localhost:3000` to see the live statistics and registered children.
+3. **Register a Child**: Click "Register Child". Fill in the anthropometric details.
+4. **Cloudinary Upload**: On the first step of registration, click the "Upload Photo" button to test the Cloudinary Upload Widget integration.
+5. **Analyze Result**: Complete the registration to see the AI generate a WHO-standardized malnutrition risk classification.
+6. **View Profile**: Check the child's detailed page to view their uploaded Cloudinary image next to their risk level.
 
 ## 📚 Documentation
 
