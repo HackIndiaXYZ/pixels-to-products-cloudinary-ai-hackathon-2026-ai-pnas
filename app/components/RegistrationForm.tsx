@@ -160,7 +160,7 @@ export default function RegistrationForm({ onSubmit, isLoading }: RegistrationFo
                 <button type="button" onClick={() => setFormData({ ...formData, imageUrl: '' })} className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">✕</button>
               </div>
             ) : (
-              <CldUploadWidget uploadPreset="ml_default" onUpload={(result: any) => setFormData({ ...formData, imageUrl: result.info.secure_url })}>
+              <CldUploadWidget uploadPreset="my-defualt" onSuccess={(result: any) => setFormData({ ...formData, imageUrl: result.info.secure_url })}>
                 {({ open }) => (
                   <button type="button" onClick={() => open()} className="px-4 py-2 bg-sky-600 text-white text-sm font-medium rounded-lg hover:bg-sky-700 transition">
                     Upload Photo
