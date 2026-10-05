@@ -5,6 +5,11 @@
 ![Next.js](https://img.shields.io/badge/Next.js-16.2-black)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+## 🔗 Live Links
+
+- 🌐 **Live Project**: [https://shopsnap-one.vercel.app/](https://shopsnap-one.vercel.app/)
+- 🎬 **Project Demo**: [https://shopsnap-demo.vercel.app/](https://shopsnap-demo.vercel.app/)
+
 ## Overview
 
 **AI-PNAS** is a production-ready full-stack healthcare web application designed to detect and classify child malnutrition using WHO anthropometric standards and AI-powered decision logic.
@@ -23,6 +28,50 @@ The system serves:
 Cloudinary is deeply integrated into the core workflow of AI-PNAS to handle crucial visual assessments. 
 - **Child Photo Upload Widget**: We integrated `next-cloudinary`'s `CldUploadWidget` directly into our child registration form. This allows healthcare workers on the field to securely upload photos of children for facial assessment, visual wasting verification, and medical record keeping.
 - **Dynamic Optimization**: The uploaded images are served via Cloudinary's secure URLs, ensuring bandwidth-optimized delivery for low-connectivity rural clinics.
+
+## 📖 How It Works (User Guide)
+
+New to AI-PNAS? Follow these steps to use the app. No installation is needed: just open the [live project](https://shopsnap-one.vercel.app/) in your browser (phone, tablet, or computer). You can also watch the [demo](https://shopsnap-demo.vercel.app/) first.
+
+### Step 1: Open the Dashboard
+When the app opens, you land on the **Dashboard**. It shows statistics and a list of all children registered so far. If you are a first-time user, the list will be empty.
+
+### Step 2: Choose Your Language
+Use the language switcher to select **English** or **Amharic**. The interface updates instantly and uses simple wording for low-literacy users.
+
+### Step 3: Register a Child
+1. Click **Register Child**.
+2. Enter the child's basic details: **name, age (in months), and sex**.
+3. Enter the measurements:
+   - **Weight** (kg)
+   - **Height** (cm)
+   - **MUAC** - Mid-Upper Arm Circumference (cm), measured around the middle of the child's left upper arm
+   - *(Optional)* Head and chest circumference
+4. Click **Upload Photo** to take or select a photo of the child. The photo is stored securely with Cloudinary and helps with visual verification of wasting.
+5. Click **Submit**.
+
+### Step 4: Get the Instant Analysis
+After you submit, the system automatically analyzes the measurements using WHO standards and shows:
+- **Nutrition status**: SAM (Severe), MAM (Moderate), or Normal, based on MUAC
+- **BMI** and its classification
+- **Risk level**: Low, Medium, or High, shown with color coding
+- **Medical recommendations** for the next steps
+- **Referral suggestion**: hospital, clinic, or community program
+
+### Step 5: Understand the Result
+
+| Result | Meaning | What To Do |
+|--------|---------|------------|
+| 🔴 **SAM** (MUAC < 11.5 cm) | Severe Acute Malnutrition, high risk | **Urgent**: therapeutic feeding and hospital referral |
+| 🟠 **MAM** (MUAC 11.5-12.5 cm) | Moderate Acute Malnutrition, medium risk | Enroll in a supplementary feeding program |
+| 🟢 **Normal** (MUAC > 12.5 cm) | Healthy nutrition status, low risk | Routine follow-up and regular check-ups |
+
+### Step 6: Track and Review Children
+- Return to the **Dashboard** at any time to see every registered child.
+- Use the **risk level filter** to quickly find High-risk children who need urgent attention.
+- Click any child to open their **detailed profile**, which shows their measurements, analysis, recommendations, and uploaded photo.
+
+> ⚠️ **Note**: AI-PNAS is a screening and decision-support tool. It does not replace a clinical diagnosis. Always confirm serious cases with a qualified health professional.
 
 ### 1. Child Registration System
 - Collect anthropometric measurements (age, weight, height, MUAC)
